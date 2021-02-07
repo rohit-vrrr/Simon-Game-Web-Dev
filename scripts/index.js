@@ -9,6 +9,9 @@ $(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
   // console.log(userClickedPattern);
+
+  // play sound
+  playSound(userChosenColor);
 });
 
 // Generating random number 0-3
@@ -20,7 +23,11 @@ function nextSequence() {
   // button flash
   $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
 
-  // play audio
-  var audio = new Audio("sounds/" + randomChosenColor + ".mp3");
+  // play sound
+  playSound(randomChosenColor);
+}
+
+function playSound(colorName) {
+  var audio = new Audio("sounds/" + colorName + ".mp3");
   audio.play();
 }
