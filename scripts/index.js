@@ -98,6 +98,13 @@ function checkAnswer(currentLevel) {
   }
 }
 
+/* Restarting the game */
+function startOver() {
+  gameStarted = false;
+  level = 0;
+  gamePattern = [];
+}
+
 /* Playing sound */
 function playSound(colorName) {
   var audio = new Audio("sounds/" + colorName + ".mp3");
@@ -110,11 +117,4 @@ function animatePress(currentColor) {
   setTimeout(function() {
     $("." + currentColor).removeClass("pressed");
   }, 100);
-}
-
-/* Restarting the game */
-function startOver() {
-  gameStarted = false;
-  level = 0;
-  gamePattern = [];
 }
