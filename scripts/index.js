@@ -74,5 +74,22 @@ function checkAnswer(currentLevel) {
   }
   else {
     console.log("Wrong");
+    // play sound
+    playSound("wrong");
+    // red bg
+    $("body").addClass("game-over");
+    setTimeout(function() {
+      $("body").removeClass("game-over");
+      $("#level-title").text("Game Over! Press any key to Restart");
+    }, 200);
+    // calling restart function
+    startOver();
   }
+}
+
+/* Restarting the game */
+function startOver() {
+  gameStarted = false;
+  level = 0;
+  gamePattern = [];
 }
